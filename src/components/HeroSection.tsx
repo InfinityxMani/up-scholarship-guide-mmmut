@@ -1,116 +1,111 @@
 
 import { motion } from "framer-motion";
+import { ArrowRight, BookOpen, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, FileText, Search, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedBackground from "./AnimatedBackground";
 
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-50 via-white to-green-50 min-h-[80vh] flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Get Your{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                UP Scholarship
-              </span>{" "}
-              Easily
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              A complete guide for MMMUT students to apply for UP Government Scholarships. 
-              Step-by-step assistance, document checklists, and application tracking.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4">
-                <a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">
-                  Apply Now
-                </a>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="px-8 py-4">
-                <Link to="/guide">View Guide</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="px-8 py-4">
-                <Link to="/tracker">Track Status</Link>
-              </Button>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">5000+</div>
-                <div className="text-sm text-gray-600">Students Helped</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">95%</div>
-                <div className="text-sm text-gray-600">Success Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600">24/7</div>
-                <div className="text-sm text-gray-600">Support</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Feature Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-green-50">
+      <AnimatedBackground />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            MMMUT
+            <span className="block text-4xl md:text-6xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+              Scholarship Support Portal
+            </span>
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            One-stop platform to help you apply, track, and understand UP Government Scholarships.
+            Your gateway to educational financial support.
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+              whileTap={{ scale: 0.95 }}
             >
-              <div className="bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                <FileText className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Step-by-Step Guide</h3>
-              <p className="text-gray-600 text-sm">Complete walkthrough of the application process</p>
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                asChild
+              >
+                <Link to="/guide" className="flex items-center space-x-2">
+                  <BookOpen className="h-5 w-5" />
+                  <span>Start Now</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
             </motion.div>
-
+            
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+              whileTap={{ scale: 0.95 }}
             >
-              <div className="bg-green-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                <Search className="h-6 w-6 text-green-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Track Application</h3>
-              <p className="text-gray-600 text-sm">Monitor your scholarship application status</p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
-            >
-              <div className="bg-purple-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                <GraduationCap className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Document Checklist</h3>
-              <p className="text-gray-600 text-sm">Ensure you have all required documents</p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
-            >
-              <div className="bg-orange-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                <Users className="h-6 w-6 text-orange-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Expert Support</h3>
-              <p className="text-gray-600 text-sm">Get help from our dedicated support team</p>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                asChild
+              >
+                <Link to="/tracker" className="flex items-center space-x-2">
+                  <Search className="h-5 w-5" />
+                  <span>Check Status</span>
+                </Link>
+              </Button>
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
+        
+        {/* Floating cards */}
+        <motion.div 
+          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          {[
+            { title: "Quick Guide", description: "Step-by-step application process", icon: "📚" },
+            { title: "Live Tracking", description: "Monitor your application status", icon: "📍" },
+            { title: "24/7 Support", description: "Get help whenever you need", icon: "💬" }
+          ].map((feature, index) => (
+            <motion.div
+              key={index}
+              className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ y: -5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
+            >
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
