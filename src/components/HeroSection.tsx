@@ -1,104 +1,116 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { GraduationCap, FileText, Search, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
-      
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+    <section className="bg-gradient-to-br from-blue-50 via-white to-green-50 min-h-[80vh] flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center px-6 py-3 rounded-full bg-white border border-gray-200 mb-8 shadow-sm"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-            <span className="text-gray-700 text-sm font-medium">MMMUT Scholarship Portal</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              Get Your{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                UP Scholarship
+              </span>{" "}
+              Easily
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              A complete guide for MMMUT students to apply for UP Government Scholarships. 
+              Step-by-step assistance, document checklists, and application tracking.
+            </p>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4">
+                <a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">
+                  Apply Now
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="px-8 py-4">
+                <Link to="/guide">View Guide</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="px-8 py-4">
+                <Link to="/tracker">Track Status</Link>
+              </Button>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-600">5000+</div>
+                <div className="text-sm text-gray-600">Students Helped</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-600">95%</div>
+                <div className="text-sm text-gray-600">Success Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-purple-600">24/7</div>
+                <div className="text-sm text-gray-600">Support</div>
+              </div>
+            </div>
           </motion.div>
 
-          <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-gray-900 mb-8 tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          {/* Feature Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
-            <span className="block">Scholarship</span>
-            <span className="block text-gray-600">Simplified</span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            Complete guide for UP Government Scholarships. Get step-by-step assistance, check payment status, and stay updated with the latest notices.
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-gray-900 hover:bg-gray-800 text-white px-10 py-4 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              asChild
-            >
-              <Link to="/guide" className="flex items-center space-x-3">
-                <span>Start Application Guide</span>
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-            
-            <Button 
-              size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              asChild
-            >
-              <a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3">
-                <ExternalLink className="h-5 w-5" />
-                <span>Apply Now</span>
-              </a>
-            </Button>
-          </motion.div>
-        </motion.div>
-        
-        {/* Enhanced stats */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-        >
-          {[
-            { number: "10,000+", label: "Students Helped", icon: "👨‍🎓" },
-            { number: "95%", label: "Success Rate", icon: "✅" },
-            { number: "24/7", label: "Support Available", icon: "🛠️" }
-          ].map((stat, index) => (
             <motion.div
-              key={index}
-              className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
-              whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
             >
-              <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">{stat.number}</div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <FileText className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Step-by-Step Guide</h3>
+              <p className="text-gray-600 text-sm">Complete walkthrough of the application process</p>
             </motion.div>
-          ))}
-        </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="bg-green-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <Search className="h-6 w-6 text-green-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Track Application</h3>
+              <p className="text-gray-600 text-sm">Monitor your scholarship application status</p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="bg-purple-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <GraduationCap className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Document Checklist</h3>
+              <p className="text-gray-600 text-sm">Ensure you have all required documents</p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="bg-orange-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                <Users className="h-6 w-6 text-orange-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Expert Support</h3>
+              <p className="text-gray-600 text-sm">Get help from our dedicated support team</p>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

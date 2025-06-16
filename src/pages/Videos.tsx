@@ -2,8 +2,6 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AnimatedBackground from "@/components/AnimatedBackground";
-import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Play, ExternalLink } from "lucide-react";
 
@@ -45,13 +43,25 @@ const Videos = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <AnimatedBackground />
       <Navbar />
       
-      <PageHeader 
-        title="Help Videos" 
-        subtitle="Watch helpful tutorials and guides for your scholarship application"
-      />
+      {/* Header */}
+      <section className="bg-gradient-to-r from-red-600 to-pink-600 py-16">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Help Videos
+            </h1>
+            <p className="text-xl text-red-100">
+              Watch helpful tutorials and guides for your scholarship application
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Videos Grid */}
       <section className="py-16">
