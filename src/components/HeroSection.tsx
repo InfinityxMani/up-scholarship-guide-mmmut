@@ -40,7 +40,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Complete guide for UP Government Scholarships. Get step-by-step assistance, track your application, and stay updated with the latest notices.
+            Complete guide for UP Government Scholarships. Get step-by-step assistance, check payment status, and stay updated with the latest notices.
           </motion.p>
           
           <motion.div 
@@ -91,7 +91,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
-              whileHover={{ y: -5, shadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
+              whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
               <div className="text-3xl font-bold text-gray-900 mb-1">{stat.number}</div>
