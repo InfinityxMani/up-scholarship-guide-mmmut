@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Search, FileText, Eye } from "lucide-react";
@@ -44,24 +45,10 @@ const ScholarshipTracker = () => {
       <AnimatedBackground />
       <Navbar />
       
-      {/* Header */}
-      <section className="relative py-32 bg-gradient-to-br from-orange-600 via-red-600 to-pink-700">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Track Your Application
-            </h1>
-            <p className="text-xl text-orange-100">
-              Follow these steps to check your scholarship application status
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHeader 
+        title="Track Your Application" 
+        subtitle="Follow these steps to check your scholarship application status"
+      />
 
       {/* Quick Access */}
       <section className="relative py-16">
