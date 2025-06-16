@@ -1,136 +1,102 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import AnimatedBackground from "./AnimatedBackground";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
+    <section className="relative min-h-screen flex items-center justify-center bg-slate-50">
       <AnimatedBackground />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6 }}
         >
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-gray-200 mb-8 shadow-sm"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-slate-200 mb-8 shadow-sm"
           >
-            <Sparkles className="h-4 w-4 text-gray-600 mr-2" />
-            <span className="text-gray-700 font-medium text-sm">Your Gateway to Educational Excellence</span>
+            <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+            <span className="text-slate-700 text-sm font-medium">Scholarship Portal</span>
           </motion.div>
 
           <motion.h1 
-            className="text-6xl md:text-8xl font-black text-gray-900 mb-6 leading-tight tracking-tight"
+            className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <span className="block">MMMUT</span>
-            <span className="block text-5xl md:text-7xl text-gray-700 font-extrabold">
-              Scholarship Portal
-            </span>
+            <span className="block">Scholarship</span>
+            <span className="block text-slate-600">Made Simple</span>
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-normal"
+            className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Streamlined platform for UP Government Scholarships with
-            <span className="text-gray-800 font-medium"> real-time tracking</span> and 
-            <span className="text-gray-800 font-medium"> expert guidance</span>
+            Apply for UP Government Scholarships with ease. Track your application status and get expert guidance.
           </motion.p>
           
           <motion.div 
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+            <Button 
+              size="lg" 
+              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-6 text-base rounded-xl shadow-sm"
+              asChild
             >
-              <Button 
-                size="lg" 
-                className="bg-gray-900 hover:bg-gray-800 text-white px-10 py-6 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-0"
-                asChild
-              >
-                <Link to="/guide" className="flex items-center space-x-3">
-                  <BookOpen className="h-6 w-6" />
-                  <span>Start Application</span>
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
-            </motion.div>
+              <Link to="/guide" className="flex items-center space-x-2">
+                <span>Get Started</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
             
-            <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-6 text-base rounded-xl"
+              asChild
             >
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 px-10 py-6 text-lg font-medium rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-                asChild
-              >
-                <Link to="/tracker" className="flex items-center space-x-3">
-                  <Search className="h-6 w-6" />
-                  <span>Track Status</span>
-                </Link>
-              </Button>
-            </motion.div>
+              <Link to="/tracker" className="flex items-center space-x-2">
+                <Search className="h-4 w-4" />
+                <span>Track Status</span>
+              </Link>
+            </Button>
           </motion.div>
         </motion.div>
         
-        {/* Simplified Feature Cards */}
+        {/* Simple stats */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
         >
           {[
-            { 
-              title: "Smart Guide", 
-              description: "Step-by-step assistance", 
-              icon: "🎯"
-            },
-            { 
-              title: "Live Tracking", 
-              description: "Real-time monitoring", 
-              icon: "📊"
-            },
-            { 
-              title: "Expert Support", 
-              description: "24/7 assistance", 
-              icon: "💡"
-            }
-          ].map((feature, index) => (
+            { number: "10,000+", label: "Applications" },
+            { number: "95%", label: "Success Rate" },
+            { number: "24/7", label: "Support" }
+          ].map((stat, index) => (
             <motion.div
               key={index}
-              className="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 group"
-              whileHover={{ y: -5 }}
+              className="text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: 1.0 + index * 0.1 }}
             >
-              <motion.div 
-                className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300"
-                whileHover={{ rotate: [0, -10, 10, 0] }}
-              >
-                {feature.icon}
-              </motion.div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600 font-normal">{feature.description}</p>
+              <div className="text-2xl font-bold text-slate-900 mb-1">{stat.number}</div>
+              <div className="text-slate-600 text-sm">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

@@ -1,57 +1,45 @@
 
 import { motion } from "framer-motion";
-import { CheckCircle, FileText, Upload, Send, User, Clock } from "lucide-react";
+import { User, FileText, Upload, Send } from "lucide-react";
 
 const StepTimeline = () => {
   const steps = [
     {
-      icon: <User className="h-6 w-6" />,
-      title: "Registration",
-      description: "Create your account on UP Scholarship Portal"
+      icon: <User className="h-5 w-5" />,
+      title: "Register",
+      description: "Create your account"
     },
     {
-      icon: <FileText className="h-6 w-6" />,
-      title: "Fill Application",
-      description: "Complete all required personal and academic details"
+      icon: <FileText className="h-5 w-5" />,
+      title: "Fill Form",
+      description: "Complete application"
     },
     {
-      icon: <Upload className="h-6 w-6" />,
-      title: "Upload Documents",
-      description: "Submit all necessary certificates and proofs"
+      icon: <Upload className="h-5 w-5" />,
+      title: "Upload",
+      description: "Submit documents"
     },
     {
-      icon: <Send className="h-6 w-6" />,
-      title: "Submit & Track",
-      description: "Submit application and monitor status regularly"
+      icon: <Send className="h-5 w-5" />,
+      title: "Submit",
+      description: "Track progress"
     }
   ];
 
   return (
     <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6"
-          >
-            <Clock className="h-4 w-4 text-gray-600 mr-2" />
-            <span className="text-gray-700 font-medium text-sm">Quick & Easy Process</span>
-          </motion.div>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-            Simple Steps to
-            <span className="block text-gray-700">
-              Success
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            Simple Process
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-normal">
-            Follow our streamlined process to complete your scholarship application effortlessly
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Complete your scholarship application in four easy steps
           </p>
         </motion.div>
 
@@ -59,10 +47,10 @@ const StepTimeline = () => {
           {/* Desktop Timeline */}
           <div className="hidden lg:block">
             <div className="flex items-center justify-between relative">
-              {/* Simple progress line */}
-              <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200 rounded-full transform -translate-y-1/2 z-0">
+              {/* Connection line */}
+              <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 transform -translate-y-1/2 z-0">
                 <motion.div
-                  className="h-full bg-gray-400 rounded-full"
+                  className="h-full bg-slate-400"
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
                   transition={{ duration: 2, delay: 0.5 }}
@@ -72,27 +60,18 @@ const StepTimeline = () => {
               {steps.map((step, index) => (
                 <motion.div
                   key={index}
-                  className="relative z-10 flex flex-col items-center group"
-                  initial={{ opacity: 0, y: 30 }}
+                  className="relative z-10 flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
                 >
-                  <motion.div
-                    className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center text-white shadow-lg mb-8 group-hover:shadow-xl transition-all duration-300"
-                    whileHover={{ scale: 1.1 }}
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                  >
+                  <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center text-white mb-6 shadow-sm">
                     {step.icon}
-                  </motion.div>
-                  <motion.div 
-                    className="text-center max-w-xs p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow-sm group-hover:shadow-md transition-all duration-300"
-                    whileHover={{ y: -3 }}
-                  >
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{step.title}</h3>
-                    <p className="text-gray-600 text-sm font-normal leading-relaxed">{step.description}</p>
-                  </motion.div>
+                  </div>
+                  <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm max-w-xs">
+                    <h3 className="font-semibold text-slate-900 mb-2">{step.title}</h3>
+                    <p className="text-slate-600 text-sm">{step.description}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -103,24 +82,18 @@ const StepTimeline = () => {
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                className="flex items-start space-x-6"
-                initial={{ opacity: 0, x: -30 }}
+                className="flex items-start space-x-4"
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <motion.div
-                  className="w-14 h-14 bg-gray-900 rounded-xl flex items-center justify-center text-white shadow-lg flex-shrink-0"
-                  whileHover={{ scale: 1.1 }}
-                >
+                <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-white flex-shrink-0">
                   {step.icon}
-                </motion.div>
-                <motion.div 
-                  className="flex-1 p-6 rounded-xl bg-gray-50 border border-gray-200 shadow-sm"
-                  whileHover={{ y: -2 }}
-                >
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-600 font-normal">{step.description}</p>
-                </motion.div>
+                </div>
+                <div className="flex-1 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                  <h3 className="font-semibold text-slate-900 mb-2">{step.title}</h3>
+                  <p className="text-slate-600">{step.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
