@@ -71,6 +71,29 @@ const HeroSection = () => {
               </a>
             </Button>
           </motion.div>
+
+          {/* PFMS Check Section */}
+          <motion.div
+            className="mb-20 p-8 bg-white rounded-3xl shadow-lg border border-gray-100"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Check Your Payment Status</h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Track your scholarship payment status directly through PFMS (Public Financial Management System)
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              asChild
+            >
+              <a href="https://pfms.nic.in/static/NewLayoutCommonContent.aspx?RequestPageName=BeneficiaryPaymentEnquiry&IsAppBarRequired=N" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3">
+                <ExternalLink className="h-5 w-5" />
+                <span>Check on PFMS</span>
+              </a>
+            </Button>
+          </motion.div>
         </motion.div>
         
         {/* Enhanced stats */}

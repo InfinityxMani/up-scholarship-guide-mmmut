@@ -6,7 +6,6 @@ import { db } from "@/lib/firebase";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Bell, Calendar, User } from "lucide-react";
@@ -66,10 +65,24 @@ const Notices = () => {
       <AnimatedBackground />
       <Navbar />
       
-      <PageHeader 
-        title="Notice Board" 
-        subtitle="Stay updated with latest announcements and important notices"
-      />
+      {/* Header */}
+      <section className="relative py-32 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Notice Board
+            </h1>
+            <p className="text-xl text-blue-100">
+              Stay updated with latest announcements and important notices
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Notices */}
       <section className="relative py-16">
