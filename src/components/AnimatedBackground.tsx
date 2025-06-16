@@ -105,7 +105,7 @@ const AnimatedBackground = () => {
 
       {/* Subtle grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.015]"
+        className="absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage: `
             linear-gradient(to right, #000 1px, transparent 1px),
