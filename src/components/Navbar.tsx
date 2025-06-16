@@ -21,56 +21,50 @@ const Navbar = () => {
 
   return (
     <motion.nav 
-      className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-lg shadow-slate-900/5"
+      className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-18">
-          {/* Enhanced Logo */}
+          {/* Clean Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-br from-blue-600 to-indigo-600 p-3 rounded-2xl shadow-lg"
+              className="bg-gray-900 p-3 rounded-xl shadow-sm"
             >
               <GraduationCap className="h-8 w-8 text-white" />
             </motion.div>
             <div>
-              <span className="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold text-gray-900">
                 MMMUT
               </span>
-              <span className="text-sm text-slate-600 block leading-none font-semibold">Scholarship Portal</span>
+              <span className="text-sm text-gray-600 block leading-none font-medium">Scholarship Portal</span>
             </div>
           </Link>
 
-          {/* Enhanced Desktop Navigation */}
+          {/* Clean Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <motion.div key={item.path} className="relative">
                 <Link
                   to={item.path}
-                  className={`px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 relative overflow-hidden ${
+                  className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                     isActive(item.path)
-                      ? "text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg"
-                      : "text-slate-700 hover:text-indigo-600 hover:bg-slate-50"
+                      ? "text-white bg-gray-900 shadow-sm"
+                      : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                   }`}
                 >
-                  <span className="relative z-10">{item.label}</span>
-                  {!isActive(item.path) && (
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-300"
-                      whileHover={{ scale: 1.05 }}
-                    />
-                  )}
+                  {item.label}
                 </Link>
               </motion.div>
             ))}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button 
                 asChild 
-                className="ml-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3 font-semibold"
+                className="ml-4 bg-gray-900 hover:bg-gray-800 text-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 px-6 py-3 font-medium"
               >
                 <a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">
                   Apply Now
@@ -79,19 +73,19 @@ const Navbar = () => {
             </motion.div>
           </div>
 
-          {/* Enhanced Mobile menu button */}
+          {/* Mobile menu button */}
           <div className="md:hidden">
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-700 hover:text-indigo-600 p-3 rounded-2xl hover:bg-slate-50 transition-all duration-300"
+              className="text-gray-700 hover:text-gray-900 p-3 rounded-xl hover:bg-gray-100 transition-all duration-300"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </motion.button>
           </div>
         </div>
 
-        {/* Enhanced Mobile Navigation */}
+        {/* Mobile Navigation */}
         <motion.div
           initial={false}
           animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
@@ -109,10 +103,10 @@ const Navbar = () => {
                 <Link
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-6 py-4 rounded-2xl text-base font-semibold transition-all duration-300 ${
+                  className={`block px-6 py-4 rounded-xl text-base font-medium transition-all duration-300 ${
                     isActive(item.path)
-                      ? "text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg"
-                      : "text-slate-700 hover:text-indigo-600 hover:bg-slate-50"
+                      ? "text-white bg-gray-900 shadow-sm"
+                      : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                   }`}
                 >
                   {item.label}
@@ -127,7 +121,7 @@ const Navbar = () => {
             >
               <Button 
                 asChild 
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl py-4 font-semibold"
+                className="w-full bg-gray-900 hover:bg-gray-800 text-white rounded-xl py-4 font-medium"
               >
                 <a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">
                   Apply Now
