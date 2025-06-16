@@ -8,10 +8,12 @@ import StatusTracker from "@/components/StatusTracker";
 import NoticeBoard from "@/components/NoticeBoard";
 import VideoHelp from "@/components/VideoHelp";
 import ContactForm from "@/components/ContactForm";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50 relative">
+      <AnimatedBackground />
       <Navbar />
       <HeroSection />
       <StepTimeline />
