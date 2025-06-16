@@ -14,15 +14,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50 relative">
       <AnimatedBackground />
-      <Navbar />
-      <HeroSection />
-      <StepTimeline />
-      <DocumentsGrid />
-      <PFMSSection />
-      <NoticeBoard />
-      <VideoHelp />
-      <ContactForm />
-      <Footer />
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <StepTimeline />
+        <DocumentsGrid />
+        <PFMSSection />
+        <NoticeBoard />
+        <VideoHelp />
+        <ContactForm />
+        <Footer />
+      </div>
     </div>
   );
 };
