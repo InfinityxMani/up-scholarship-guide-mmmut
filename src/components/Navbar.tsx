@@ -2,14 +2,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X, BookOpen, LogIn } from "lucide-react";
+import { Menu, X, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/hooks/useAuth";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { user, isAdmin } = useAuth();
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -23,7 +21,7 @@ const Navbar = () => {
 
   return (
     <motion.nav 
-      className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200"
+      className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
@@ -32,12 +30,12 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="bg-gray-900 p-2.5 rounded-xl">
+            <div className="bg-slate-900 p-2.5 rounded-lg">
               <BookOpen className="h-5 w-5 text-white" />
             </div>
             <div>
-              <span className="text-lg font-bold text-gray-900">MMMUT</span>
-              <span className="text-xs text-gray-500 block">Scholarship</span>
+              <span className="text-lg font-semibold text-slate-900">MMMUT</span>
+              <span className="text-xs text-slate-500 block">Scholarship</span>
             </div>
           </Link>
 
@@ -47,35 +45,29 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   isActive(item.path)
-                    ? "text-gray-900 bg-gray-100"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    ? "text-slate-900 bg-slate-100"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            
-            {/* Admin Access */}
-            {isAdmin ? (
-              <Button asChild className="ml-6 bg-gray-900 hover:bg-gray-800 text-white rounded-xl px-6">
-                <Link to="/dashboard">Dashboard</Link>
-              </Button>
-            ) : (
-              <Button asChild variant="outline" className="ml-6 border-gray-300 text-gray-700 hover:bg-gray-50 rounded-xl px-6">
-                <Link to="/login">
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Admin
-                </Link>
-              </Button>
-            )}
+            <Button 
+              asChild 
+              className="ml-6 bg-slate-900 hover:bg-slate-800 text-white rounded-lg px-6"
+            >
+              <a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">
+                Apply
+              </a>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-700 p-2 rounded-xl hover:bg-gray-100"
+            className="md:hidden text-slate-700 p-2 rounded-lg hover:bg-slate-100"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -94,28 +86,23 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                   isActive(item.path)
-                    ? "text-gray-900 bg-gray-100"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    ? "text-slate-900 bg-slate-100"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            
-            {isAdmin ? (
-              <Button asChild className="w-full mt-4 bg-gray-900 hover:bg-gray-800 text-white">
-                <Link to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
-              </Button>
-            ) : (
-              <Button asChild variant="outline" className="w-full mt-4 border-gray-300 text-gray-700 hover:bg-gray-50">
-                <Link to="/login" onClick={() => setIsOpen(false)}>
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Admin Login
-                </Link>
-              </Button>
-            )}
+            <Button 
+              asChild 
+              className="w-full mt-4 bg-slate-900 hover:bg-slate-800 text-white"
+            >
+              <a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">
+                Apply Now
+              </a>
+            </Button>
           </div>
         </motion.div>
       </div>
