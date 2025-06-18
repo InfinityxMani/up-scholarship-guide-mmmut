@@ -4,7 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import StepTimeline from "@/components/StepTimeline";
 import DocumentsGrid from "@/components/DocumentsGrid";
-import PFMSSection from "@/components/PFMSSection";
+import StatusTracker from "@/components/StatusTracker";
 import NoticeBoard from "@/components/NoticeBoard";
 import VideoHelp from "@/components/VideoHelp";
 import ContactForm from "@/components/ContactForm";
@@ -18,7 +18,7 @@ const Index = () => {
       <HeroSection />
       <StepTimeline />
       <DocumentsGrid />
-      <PFMSSection />
+      <StatusTracker />
       <NoticeBoard />
       <VideoHelp />
       <ContactForm />
